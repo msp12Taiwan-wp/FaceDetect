@@ -4,13 +4,18 @@ import numpy as np
 import urllib
 import http.client
 import json
+
+text=open('apiKey.txt','r')
+key=text.read()
+text.close()
+
 params = urllib.parse.urlencode({
     'returnFaceId': "true",
     'returnFaceLandmarks': 'false',
 }) 
 headers = {
     'Content-type': 'application/octet-stream',
-    'Ocp-Apim-Subscription-Key': 'ecb0bcf4f955494b90c7b76d31821986',
+    'Ocp-Apim-Subscription-Key': key,
 }
 
 def detect(filename):
